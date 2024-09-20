@@ -15,10 +15,10 @@
 
     <ul class="nav-right">
         <li @class(['current' => false])>
-            <a href="">Profil</a>
+            <a href="/profile">Profil</a>
         </li>
         <li>
-            <form action="" method="post">
+            <form action="logout" method="post">
                 @csrf
                 <button type="submit">Se déconnecter</button>
             </form>
