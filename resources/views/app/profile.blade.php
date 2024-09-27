@@ -50,11 +50,9 @@
                 </div>
 
                 <div class="space-y-2">
-                    <input class="signup-code" type="text" readonly disabled value="ABCD-123-EFGH">
-                    <input class="signup-code" type="text" readonly disabled value="ABCD-123-EFGH">
-                    <input class="signup-code" type="text" readonly value="ABCD-123-EFGH">
-                    <input class="signup-code" type="text" readonly value="ABCD-123-EFGH">
-                    <input class="signup-code" type="text" readonly value="ABCD-123-EFGH">
+                    @foreach($invitationCodes as $code)
+                        <input class="signup-code" type="text" readonly value="{{ $code }}" {{ $loop->first ? 'disabled' : '' }}>
+                    @endforeach
                 </div>
             </div>
         </div>
