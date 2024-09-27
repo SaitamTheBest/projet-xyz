@@ -45,13 +45,13 @@
                     </svg>
                     <div>
                         <h1>Codes d'inscription</h1>
-                        <h2>{{ trans_choice('auth.remaining_codes', 2) }}</h2>
+                        <h2>{{ trans_choice('auth.remaining_codes', $remainingCodes) }}</h2>
                     </div>
                 </div>
 
                 <div class="space-y-2">
                     @foreach($invitationCodes as $code)
-                        <input class="signup-code" type="text" readonly value="{{ $code }}" {{ $loop->first ? 'disabled' : '' }}>
+                        <input class="signup-code" type="text" readonly value="{{ $code->code }}">
                     @endforeach
                 </div>
             </div>
