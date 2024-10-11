@@ -37,4 +37,19 @@ class LoginController extends Controller
     
         return redirect('/');
     }
+
+    public function login_with_code(Request $request)
+    {
+        $credentials = $request->validate([
+            'code' => ['required', 'code']
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            // Enlever le code 
+            return redirect()->intended('/signup-terms');
+        }
+        return back()->withErrors([
+            'code' => 'Le code entré est incorrect',
+        ])->onlyInput('code'); 
+    }
 }

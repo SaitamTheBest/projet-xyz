@@ -43,9 +43,12 @@
                     <input id="code" type="text" placeholder="code" name="code" value="" class="w-full uppercase">
                 </div>
 
-                <p class="error-message">Exemple de message d'erreur</p>
+                @error('code')
+                <p class="error-message">{{$message}}</p>
+                @enderror
 
                 <div>
+                    @csrf
                     <button class="secondary w-full">Devenir membre XYZ</button>
                 </div>
             </form>
