@@ -34,6 +34,10 @@ Route::group(['middleware' => ['auth']], function () {
     // Route pour afficher toutes les contributions (si vous avez une page de listing)
     Route::get('/contributions', [ContributionController::class, 'index'])->name('contributions.index');
 
+    // Route pour ajouter une contribution
+    Route::get('/add-contribution', [ContributionController::class, 'showForm'])->name('contribution.form');
+    Route::post('/add-contribution', [ContributionController::class, 'add'])->name('contribution.add');
+
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -12,8 +12,8 @@
             <a href="{{ route('weeks.index') }}">Classement</a>
             @endif
         </li>
-        <li @class(['current' => false])>
-            <a href="#">+ Contribuer</a>
+        <li @class(['current' => request()->routeIs('add-contribution.*')])>
+            <a href="{{ route('contribution.form')}}">+ Contribuer</a>
         </li>
         @endauth
     </ul>
