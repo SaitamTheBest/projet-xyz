@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Code;
+use App\Models\Contribution;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
         User::factory(10)
             ->has(Code::factory()->consumed()->count(2))
             ->has(Code::factory()->count(3))
+            ->has(Contribution::factory()->count(1))
             ->create();
     }
 }

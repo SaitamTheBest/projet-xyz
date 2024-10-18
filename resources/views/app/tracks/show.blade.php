@@ -1,18 +1,17 @@
 <x-app :title='"Contribution n°2"'>
 
     <main class="container-wide two-cols space-y-8">
-
         <section>
             <h1>
-                Contribution <small>n°2</small>
+                Contribution <small> n°{{ $contribution->id }}</small>
             </h1>
 
             <dl>
                 <dt>Artiste</dt>
-                <dd>Nom de l'artiste</dd>
-
+                <dd>{{ $contribution->name }}</dd>
                 <dt>Titre</dt>
-                <dd>Nom du titre</dd>
+                <dd>{{ $contribution->title }}</dd> 
+
 
                 <dt>Contributeur</dt>
                 <dd class="flex-center">
@@ -22,7 +21,7 @@
                 <dt>Lecteur</dt>
                 <dd>
                     <iframe width="560" height="315" 
-                        src="https://www.youtube-nocookie.com/embed/hYfz5adLxJc"
+                        src={{ $contribution->link }}
                         title="YouTube video player" frameborder="0" 
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Week;
+use App\Models\Contribution;
+use Carbon\Carbon;
 
 class WeekController extends Controller
 {
@@ -21,9 +23,15 @@ class WeekController extends Controller
      */
     public function show(Week $week)
     {
+        $weekStart = Carbon::parse($week->week_starts_at);
+        $weekEnd = Carbon::parse($week->week_ends_at);
+
+        // Récupérer les contributions ajoutées durant cette période
+        $contributions = Contribution::whereBetween('created_at', [$weekStart, $weekEnd])->get();
+
         return view('app.weeks.show', [
             'week' => $week,
-            'tracks' => [],
+            'tracks' => $contributions, 
             'isCurrent' => $week->toPeriod()->contains(now()),
         ]);
     }

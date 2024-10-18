@@ -62,4 +62,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Code::class, 'host_id');
     }
+
+    /**
+     * Get the user contribution.
+     */
+    public function contribution()
+    {
+        return $this->hasMany(Contribution::class, 'contributor_id');
+    }
 }
